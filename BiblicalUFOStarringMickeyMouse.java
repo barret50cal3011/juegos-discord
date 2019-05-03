@@ -22,10 +22,3 @@ public class BiblicalUFOStarringMickeyMouse
 	}
 }
 
-class Board
-{
-	public Board()
-	{
-
-	}
-}
