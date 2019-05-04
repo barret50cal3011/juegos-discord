@@ -8,12 +8,13 @@ public class BiblicalUFOStarringMickeyMouse
 
 	public BiblicalUFOStarringMickeyMouse()
 	{
+		board = new Board();
+
 		frame = new JFrame("Biblical UFO starring Miockey Mouse");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
-		board = new Board();
 	}
 
 	public static void main(String[] args)
