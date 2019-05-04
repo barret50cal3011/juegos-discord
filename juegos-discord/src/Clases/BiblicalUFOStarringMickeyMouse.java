@@ -1,12 +1,17 @@
 package Clases;
 
 import javax.swing.JFrame;
+<<<<<<< HEAD
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+=======
+
+import Client.Board;
+>>>>>>> 745000ac1cabaf9acd8fcced5aaf7e871152e565
 /*
  * Clase principal del juego
  * Maldita sea Daniel, comente su puto codigo...

@@ -1,4 +1,4 @@
-package Clases;
+package Client;
 
 /*
  * Clase que representa el tablero de juego.
