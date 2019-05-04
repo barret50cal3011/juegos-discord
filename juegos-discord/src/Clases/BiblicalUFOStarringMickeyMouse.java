@@ -1,6 +1,8 @@
 package Clases;
 
 import javax.swing.JFrame;
+
+import Client.Board;
 /*
  * Clase principal del juego
  * Maldita sea Daniel, comente su puto codigo...
