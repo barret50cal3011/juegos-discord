@@ -20,8 +20,8 @@ public class JajaUyPapiQuePutasException extends Exception
 	 * Metodo constructor de la clase JajaUyPapiQuePutasException.
 	 */
 	
-	public JajaUyPapiQuePutasException()
+	public JajaUyPapiQuePutasException(String e)
 	{
-		super();
+		super(e);
 	}
 }
