@@ -1,3 +1,5 @@
+package Clases;
+
 import javax.swing.JFrame;
 /*
  * Clase principal del juego
