@@ -38,7 +38,7 @@ public class BiblicalUFOStarringMickeyMouse implements ActionListener
 	//-------------------------------------------------------------
 	
 	/*
-	 * Metodo constructor del juego.
+	 * Metodo constructor de el launcher.
 	 */
 	public BiblicalUFOStarringMickeyMouse()
 	{
