@@ -38,6 +38,12 @@ public class Hex
 		this.s = s;
 		if (q + r + s != 0) 
 			throw new JajaUyPapiQuePutasException("q + r + s must be 0");
+		
+		
+	}
+	
+	public void directions() throws JajaUyPapiQuePutasException
+	{
 		directions = new ArrayList<Hex>();
 
 		directions.add(new Hex(1, 0, -1));

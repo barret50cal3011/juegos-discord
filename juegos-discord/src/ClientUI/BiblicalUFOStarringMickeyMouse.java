@@ -2,7 +2,11 @@ package ClientUI;
 
 //Java clases
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import Clases.JajaUyPapiQuePutasException;
+
 import javax.swing.JButton;
 
 import java.awt.Dimension;
@@ -14,8 +18,13 @@ import java.awt.event.ActionEvent;
  * Maldita sea Daniel, comente su puto codigo...
  * Ups :v att: Daniel.
  */
-public class BiblicalUFOStarringMickeyMouse implements ActionListener
+public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionListener
 {
+	/**
+	 * Constante de serialización
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//-------------------------------------------------------------
 		//Constantes
 	//-------------------------------------------------------------
@@ -29,6 +38,8 @@ public class BiblicalUFOStarringMickeyMouse implements ActionListener
 	public JPanel panel;
 
 	public JButton bLaunch;
+	
+	public Board board;
 
 	//-------------------------------------------------------------
 		//Bob el constructor
@@ -79,7 +90,14 @@ public class BiblicalUFOStarringMickeyMouse implements ActionListener
 		String cmd = evt.getActionCommand();
 		if(cmd.equals(LAUNCH))
 		{
-			//TODO: launch method
+			try 
+			{
+				board = new Board();
+			}
+			catch (JajaUyPapiQuePutasException e) 
+			{
+				JOptionPane.showMessageDialog(this, e.getMessage(), "Jaja uy papi, qué putas?", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 	
