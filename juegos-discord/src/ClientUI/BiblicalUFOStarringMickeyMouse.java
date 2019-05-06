@@ -1,4 +1,4 @@
-package Clases;
+package ClientUI;
 
 //Java clases
 import javax.swing.JFrame;
@@ -8,9 +8,6 @@ import javax.swing.JButton;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
-//Our classes
-import Client.Board;
 
 /*
  * Clase principal del juego
