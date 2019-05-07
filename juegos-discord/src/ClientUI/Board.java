@@ -15,9 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import Clases.JajaUyPapiQuePutasException;
+import Client.FractionalHex;
 import Client.Hex;
 import Client.Layout;
 import Client.Point;
+import Client.Orientation;
 /*
  * @author Lele
  * Clase que grafica el tablero de juego.
@@ -41,6 +43,10 @@ public class Board extends JPanel implements MouseListener
 	private int origin;
 
 	private int hexes;
+	
+	private Layout layout;
+	
+	private ArrayList<Hex> hexArray;
 
 	/**
 	 * Constante de serializacion.
@@ -55,6 +61,7 @@ public class Board extends JPanel implements MouseListener
 	public Board() throws JajaUyPapiQuePutasException
 	{
 		addMouseListener(this);
+		
 		properties = new Properties();
 		try
 		{
@@ -65,8 +72,10 @@ public class Board extends JPanel implements MouseListener
 			throw new JajaUyPapiQuePutasException(e.getMessage());
 		}
 		mapa = new ArrayList<>();
+		hexArray = new ArrayList<>();
 		
 		buildMap(properties);
+		
 		setBorder(new TitledBorder(nombre));
 	}
 
@@ -79,7 +88,7 @@ public class Board extends JPanel implements MouseListener
 		try
 		{
 			Hex actualHex = new Hex(q, r, s);
-			Layout layout = new Layout(Layout.pointy, new Point(size, size), new Point(origin, origin));
+			hexArray.add(actualHex);
 			ArrayList<Point> points = layout.polygonCorners(actualHex);
 			return points;
 		}
@@ -96,13 +105,28 @@ public class Board extends JPanel implements MouseListener
 	public void buildMap(Properties properties) throws JajaUyPapiQuePutasException
 	{
 		nombre = properties.getProperty("nombre");
-
 		String x = properties.getProperty("size");
 		String y = properties.getProperty("origin");
 
 		size = Integer.parseInt(x);
 		origin = Integer.parseInt(y);
+		
+		String strOri = properties.getProperty("orientation");
+		Orientation ori = Layout.pointy;
+		if(strOri == "flat")
+		{
+			ori = Layout.flat;
+		}
+		else if(strOri == "pointy")
+		{
+			ori = Layout.pointy;
+		}
+		layout = new Layout(ori, new Point(size, size), new Point(origin, origin));
+		
+
+		
 		hexes = Integer.parseInt(properties.getProperty("hexes")); 
+		
 
 
 		for(int i = 1; i <= hexes; i++)
@@ -134,6 +158,7 @@ public class Board extends JPanel implements MouseListener
 		canvas.drawPolygon(testHex);
 
 	}
+	
 
 	/*
 	 * Metodo que pinta los hexagonos. El rango del ciclo es la cantidad de hexagonos pintados.
@@ -151,7 +176,21 @@ public class Board extends JPanel implements MouseListener
 			paintHex((Graphics2D) canvas, mapa.get(i));
 
 		}
+		
+		
 	}
+	
+	public void validHex(Hex clicked)
+	{
+		for(int i = 0; i < hexArray.size(); i++)
+		{
+			if(!(clicked.isEqual(hexArray.get(i))));
+			{
+				System.out.println("Invalid");
+			}
+		}
+	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) 
@@ -159,7 +198,16 @@ public class Board extends JPanel implements MouseListener
 		// TODO Auto-generated method stub
 		int x = arg0.getX();
 		int y = arg0.getY();
-		System.out.println(x+","+y);
+		Point z = new Point(x, y);
+		try 
+		{
+			Hex clicked = layout.pixelToHex(z).hexRound();
+			System.out.println(clicked.q+ " " + clicked.r +" "+ clicked.s);
+		} 
+		catch (JajaUyPapiQuePutasException e) 
+		{
+			
+		}
 		
 	}
 

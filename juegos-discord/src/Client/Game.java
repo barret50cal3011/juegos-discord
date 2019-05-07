@@ -1,5 +1,7 @@
 package Client;
 
+import java.util.ArrayList;
+
 /*
  *Clase del juego.
  */
@@ -7,6 +9,17 @@ package Client;
 public class Game
 {
 
+	public final static String rutaMapas = "./data/maps";
+	//-------------------------------------------------------------
+		//Atributos
+	//-------------------------------------------------------------
+	private ArrayList<Player> players;
+	
+	private ArrayList<String> mapas;
+	
+	
+	
+	
 	//-------------------------------------------------------------
 		//Bob el constructor
 	//-------------------------------------------------------------
@@ -17,5 +30,7 @@ public class Game
 	public Game()
 	{
 
+		players = new ArrayList<>();
+		mapas = new ArrayList<>();
 	}
 }

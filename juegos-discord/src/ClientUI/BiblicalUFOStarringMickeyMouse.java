@@ -58,12 +58,13 @@ public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionList
 		bLaunch = new JButton(LAUNCH);
 		bLaunch.setActionCommand(LAUNCH);
 		bLaunch.addActionListener(this);
+		panel.add(bLaunch);
+
+		getContentPane().add(panel);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		panel.add(bLaunch);
-
-		add(panel);
+		
 
 		
 	}
