@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -20,7 +22,7 @@ import Client.Point;
  * @author Lele
  * Clase que grafica el tablero de juego.
  */
-public class Board extends JPanel 
+public class Board extends JPanel implements MouseListener
 {
 
 	/*
@@ -52,7 +54,7 @@ public class Board extends JPanel
 	 */
 	public Board() throws JajaUyPapiQuePutasException
 	{
-		
+		addMouseListener(this);
 		properties = new Properties();
 		try
 		{
@@ -149,5 +151,43 @@ public class Board extends JPanel
 			paintHex((Graphics2D) canvas, mapa.get(i));
 
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		int x = arg0.getX();
+		int y = arg0.getY();
+		System.out.println(x+","+y);
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
