@@ -33,13 +33,12 @@ public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionList
 	//-------------------------------------------------------------
 		//Atributos
 	//-------------------------------------------------------------
-	public JFrame frame;
 
 	public JPanel panel;
 
 	public JButton bLaunch;
 	
-	public Board board;
+	public GameScreen gameScreen;
 
 	//-------------------------------------------------------------
 		//Bob el constructor
@@ -50,9 +49,9 @@ public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionList
 	 */
 	public BiblicalUFOStarringMickeyMouse()
 	{
-		frame = new JFrame("Biblical UFO starring Mickey Mouse");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(new Dimension(500, 500));
+		setTitle("Biblical UFO starring Mickey Mouse");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(new Dimension(500, 500));
 
 		panel = new JPanel();
 
@@ -60,13 +59,14 @@ public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionList
 		bLaunch = new JButton(LAUNCH);
 		bLaunch.setActionCommand(LAUNCH);
 		bLaunch.addActionListener(this);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setVisible(true);
 		panel.add(bLaunch);
 
-		frame.getContentPane().add(panel);
+		add(panel);
 
-		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
-		frame.setVisible(true);
+		
 	}
 
 	//-------------------------------------------------------------
@@ -92,7 +92,7 @@ public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionList
 		{
 			try 
 			{
-				board = new Board();
+				gameScreen = new GameScreen();
 			}
 			catch (JajaUyPapiQuePutasException e) 
 			{
