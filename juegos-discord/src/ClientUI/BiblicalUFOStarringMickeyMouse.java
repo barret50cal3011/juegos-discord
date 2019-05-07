@@ -2,7 +2,6 @@ package ClientUI;
 
 //Java clases
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Clases.JajaUyPapiQuePutasException;
@@ -96,7 +95,7 @@ public class BiblicalUFOStarringMickeyMouse extends JFrame implements ActionList
 			}
 			catch (JajaUyPapiQuePutasException e) 
 			{
-				JOptionPane.showMessageDialog(this, e.getMessage(), "Jaja uy papi, qué putas?", JOptionPane.ERROR_MESSAGE);
+				
 			}
 		}
 	}

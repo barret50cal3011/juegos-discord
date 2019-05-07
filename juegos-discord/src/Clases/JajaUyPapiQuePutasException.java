@@ -1,5 +1,9 @@
 package Clases;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /*
  * Clase principal de excepción.
@@ -23,6 +27,16 @@ public class JajaUyPapiQuePutasException extends Exception
 	
 	public JajaUyPapiQuePutasException(String e)
 	{
-		super(e);
+		JFrame x  = new JFrame();
+		x.setVisible(true);
+		x.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		x.setSize(1000, 450);
+		x.setResizable(false);
+		ImageIcon y = new ImageIcon("./data/images/excuse.jpg");
+		JPanel z = new JPanel();
+		x.add(z);
+		JLabel w = new JLabel(e);
+		w.setIcon(y);
+		z.add(w);
 	}
 }

@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import Clases.JajaUyPapiQuePutasException;
 
 /*
+ * @author Lele
  * Clase donde de diagrama el tablero de juego.
  */
 public class GameScreen extends JFrame

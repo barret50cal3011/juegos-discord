@@ -7,14 +7,16 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Clases.JajaUyPapiQuePutasException;
 import Client.Hex;
 import Client.Layout;
 import Client.Point;
-
+/*
+ * @author Lele
+ * Clase que grafica el tablero de juego.
+ */
 public class Board extends JPanel 
 {
 
@@ -24,13 +26,9 @@ public class Board extends JPanel
 	 */
 	private static final long serialVersionUID = 1L;
 	
-
-
-	
-		
-	
-
-	
+	/*
+	 * Metodo que agrega hexagonos al arreglo de puntos para dibujarlos.
+	 */
 	public ArrayList<Point> buildHexN(int i)
 	{
 
@@ -43,12 +41,14 @@ public class Board extends JPanel
 		}
 		catch (JajaUyPapiQuePutasException e)
 		{
-			JOptionPane.showMessageDialog(this, e, "Jaja uy papi, qué putas?", JOptionPane.ERROR_MESSAGE);
 			return null;
 		}
 
 	}
 
+	/*
+	 * Metodo que pinta un hexagono.
+	 */
 	public void paintTest(Graphics2D canvas, ArrayList<Point> points)
 	{
 		canvas.setColor(Color.BLACK);
@@ -64,6 +64,11 @@ public class Board extends JPanel
 
 	}
 
+	/*
+	 * Metodo que pinta los hexagonos. El rango del ciclo es la cantidad de hexagonos pintados.
+	 * (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	public void paintComponent( Graphics canvas )
 	{
 		super.paintComponent( canvas );
