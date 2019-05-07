@@ -2,21 +2,12 @@ package ClientUI;
 
 
 
-import java.awt.BasicStroke;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import Clases.JajaUyPapiQuePutasException;
-import Client.Hex;
-import Client.Layout;
-import Client.Point;
 
 /*
  * Clase donde de diagrama el tablero de juego.
