@@ -27,7 +27,6 @@ public class GameScreen extends JFrame
 	
 	private Board board;
 	
-	private Graphics2D canvas;
 
 	/**
 	 * Variable de serializacion
@@ -61,7 +60,6 @@ public class GameScreen extends JFrame
 		//---------------------------------------------------------
 			//Board
 		//---------------------------------------------------------
-		canvas = (Graphics2D) board.getGraphics();
 		
 		add(board, BorderLayout.CENTER);
 		
