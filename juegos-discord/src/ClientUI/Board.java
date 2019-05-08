@@ -15,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import Clases.JajaUyPapiQuePutasException;
-import Client.FractionalHex;
 import Client.Hex;
 import Client.Layout;
 import Client.Point;
@@ -189,7 +188,7 @@ public class Board extends JPanel implements MouseListener
 		for(int i = 0; i < 6; i++)
 		{
 			testHex.addPoint((int)points.get(i).x, (int)points.get(i).y);
-			canvas.setColor(hex.color);
+			canvas.setColor(hex.getColor());
 		}
 		canvas.fillPolygon(testHex);
 	}
@@ -231,22 +230,22 @@ public class Board extends JPanel implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent arg0) 
 	{
-		// TODO Auto-generated method stub
 		int x = arg0.getX();
 		int y = arg0.getY();
 		Point z = new Point(x, y);
 		try 
 		{
 			Hex clicked = layout.pixelToHex(z).hexRound();
-			Color c = null;
-			for(int i = 0; i < hexes; i++)
+			System.out.println(clicked.toString());
+			for(int i = 0; i < hexArray.size(); i++)
 			{
 				if(clicked.isEqual(hexArray.get(i)));
 				{
-					c = hexArray.get(i).color;
+					clicked.setColor(hexArray.get(i).getColor());
 				}
 			}
-			System.out.println(clicked.q+ " " + clicked.r +" "+ clicked.s + " " + c);
+			System.out.println(clicked.toString());
+
 		} 
 		catch (JajaUyPapiQuePutasException e) 
 		{
@@ -258,28 +257,25 @@ public class Board extends JPanel implements MouseListener
 	@Override
 	public void mouseEntered(MouseEvent arg0) 
 	{
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) 
 	{
-		// TODO Auto-generated method stub
-		
+		// No se necesita		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) 
 	{
-		// TODO Auto-generated method stub
-		
+		// No se necesita		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) 
 	{
-		// TODO Auto-generated method stub
-		
+		// No se necesita		
 	}
 }

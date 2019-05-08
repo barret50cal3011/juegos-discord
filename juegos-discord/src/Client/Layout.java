@@ -34,8 +34,8 @@ public class Layout
 	public Point hexToPixel(Hex h)
 	{
 		Orientation M = orientation;
-		double x = (M.f0 * h.q + M.f1 * h.r) * size.x;
-		double y = (M.f2 * h.q + M.f3 * h.r) * size.y;
+		double x = (M.f0 * h.getQ() + M.f1 * h.getR()) * size.x;
+		double y = (M.f2 * h.getQ() + M.f3 * h.getR()) * size.y;
 		return new Point(x + origin.x, y + origin.y);
 	}
 

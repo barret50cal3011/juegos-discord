@@ -18,10 +18,10 @@ public class Hex
 	//Atributos
 	//---------------------------------
 
-	public final int q;
-	public final int r;
-	public final int s;
-	public final Color color;
+	private int q;
+	private int r;
+	private int s;
+	private Color color;
 
 	static public ArrayList<Hex> directions;
 
@@ -62,7 +62,14 @@ public class Hex
 	 */
 	public boolean isEqual(Hex a)
 	{
-		return a.q == this.q && a.r == this.r && a.s == this.s;
+		boolean r = false;
+		boolean x = a.q == this.q;
+		boolean y = a.r == this.r;
+		boolean z = a.s == this.s;
+		if(x == y && y == z)
+			r = true;
+		return r;
+		
 	}
 
 	/*
@@ -99,8 +106,53 @@ public class Hex
 		return new Hex(q - b.q, r - b.r, s - b.s, color);
 	}
 	
-
-
-
+	/*
+	 * Retorna q
+	 */
+	public int getQ()
+	{
+		return q;
+	}
+	
+	/*
+	 * Retorna r
+	 */
+	public int getR()
+	{
+		return r;
+	}
+	
+	/*
+	 * Retorna s
+	 */
+	public int getS()
+	{
+		return s;
+	}
+	
+	/*
+	 * Retorna color
+	 */
+	public Color getColor()
+	{
+		return color;
+	}
+	
+	/*
+	 * (non-Javadoc) Retorna coordenadas y color
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString()
+	{
+		return q + "," + r + "," + s + ", " + color;
+	}
+	
+	/*
+	 * Cambia el color
+	 */
+	public void setColor(Color c)
+	{
+		color = c;
+	}
 
 }
