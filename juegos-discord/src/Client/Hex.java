@@ -3,6 +3,7 @@
  */
 package Client;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import Clases.JajaUyPapiQuePutasException;
@@ -20,6 +21,7 @@ public class Hex
 	public final int q;
 	public final int r;
 	public final int s;
+	public final Color color;
 
 	static public ArrayList<Hex> directions;
 
@@ -31,30 +33,17 @@ public class Hex
 	 * Constructor del hexagono.
 	 * 
 	 */
-	public Hex(int q, int s, int r) throws JajaUyPapiQuePutasException
+	public Hex(int q, int s, int r, Color color) throws JajaUyPapiQuePutasException
 	{
 		this.q = q;
 		this.r = r;
 		this.s = s;
+		this.color = color;
 		if (q + r + s != 0) 
 			throw new JajaUyPapiQuePutasException("q + r + s must be 0");
 		
 		
 	}
-	
-	public void directions() throws JajaUyPapiQuePutasException
-	{
-		directions = new ArrayList<Hex>();
-
-		directions.add(new Hex(1, 0, -1));
-		directions.add(new Hex(1, -1, 0));
-		directions.add(new Hex(0, -1, 1));
-		directions.add(new Hex(-1, 0, 1));
-		directions.add(new Hex(-1, 1, 0));
-		directions.add(new Hex(0, 1, -1));
-	}
-
-
 
 	static public Hex direction(int direction)
 	{
@@ -99,7 +88,7 @@ public class Hex
 	 */
 	public Hex add(Hex b) throws JajaUyPapiQuePutasException
 	{
-		return new Hex(q + b.q, r + b.r, s + b.s);
+		return new Hex(q + b.q, r + b.r, s + b.s, color);
 	}
 
 	/*
@@ -107,8 +96,10 @@ public class Hex
 	 */
 	public Hex subtract(Hex b) throws JajaUyPapiQuePutasException
 	{
-		return new Hex(q - b.q, r - b.r, s - b.s);
+		return new Hex(q - b.q, r - b.r, s - b.s, color);
 	}
+	
+
 
 
 

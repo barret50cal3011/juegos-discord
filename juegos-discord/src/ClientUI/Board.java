@@ -87,7 +87,7 @@ public class Board extends JPanel implements MouseListener
 
 		try
 		{
-			Hex actualHex = new Hex(q, r, s);
+			Hex actualHex = new Hex(q, r, s, randomColor());
 			hexArray.add(actualHex);
 			ArrayList<Point> points = layout.polygonCorners(actualHex);
 			return points;
@@ -97,6 +97,29 @@ public class Board extends JPanel implements MouseListener
 			return null;
 		}
 
+	}
+	
+	public Color randomColor()
+	{
+		int x = (int) (Math.random() * 80);
+		if(x < 11)
+			return Color.RED;
+		else if(x >= 11 && x <= 20)
+			return Color.BLUE;
+		else if(x >= 21 && x <= 30)
+			return Color.YELLOW;
+		else if(x >= 31 && x <= 40)
+			return Color.GREEN;
+		else if(x >= 41 && x <= 50)
+			return Color.GRAY;
+		else if(x >= 51 && x <= 60)
+			return Color.PINK;
+		else if(x >= 61 && x <=70)
+			return Color.MAGENTA;
+		else
+			return Color.WHITE;
+		
+		
 	}
 
 	/*
@@ -144,7 +167,7 @@ public class Board extends JPanel implements MouseListener
 	/*
 	 * Metodo que pinta un hexagono.
 	 */
-	public void paintHex(Graphics2D canvas, ArrayList<Point> points)
+	public void drawHex(Graphics2D canvas, ArrayList<Point> points)
 	{
 		canvas.setColor(Color.BLACK);
 		canvas.setStroke(new BasicStroke(1));
@@ -156,7 +179,19 @@ public class Board extends JPanel implements MouseListener
 			testHex.addPoint((int)points.get(i).x, (int)points.get(i).y);
 		}
 		canvas.drawPolygon(testHex);
+		
+	}
+	public void paintHex(Graphics2D canvas, Hex hex, ArrayList<Point> points)
+	{
+		Polygon testHex = new Polygon();
 
+
+		for(int i = 0; i < 6; i++)
+		{
+			testHex.addPoint((int)points.get(i).x, (int)points.get(i).y);
+			canvas.setColor(hex.color);
+		}
+		canvas.fillPolygon(testHex);
 	}
 	
 
@@ -173,7 +208,8 @@ public class Board extends JPanel implements MouseListener
 		for(int i = 0; i < mapa.size(); i++)
 		{
 
-			paintHex((Graphics2D) canvas, mapa.get(i));
+			paintHex((Graphics2D) canvas, hexArray.get(i), mapa.get(i));
+			drawHex((Graphics2D) canvas, mapa.get(i));
 
 		}
 		
@@ -202,7 +238,15 @@ public class Board extends JPanel implements MouseListener
 		try 
 		{
 			Hex clicked = layout.pixelToHex(z).hexRound();
-			System.out.println(clicked.q+ " " + clicked.r +" "+ clicked.s);
+			Color c = null;
+			for(int i = 0; i < hexes; i++)
+			{
+				if(clicked.isEqual(hexArray.get(i)));
+				{
+					c = hexArray.get(i).color;
+				}
+			}
+			System.out.println(clicked.q+ " " + clicked.r +" "+ clicked.s + " " + c);
 		} 
 		catch (JajaUyPapiQuePutasException e) 
 		{

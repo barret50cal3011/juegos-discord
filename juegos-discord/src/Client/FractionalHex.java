@@ -1,5 +1,7 @@
 package Client;
 
+import java.awt.Color;
+
 import Clases.JajaUyPapiQuePutasException;
 /*
  * @author Lele
@@ -10,12 +12,14 @@ public class FractionalHex
 	public final double q;
 	public final double r;
 	public final double s;
+	public final Color color;
 
 	/*
 	 * Constructor del hexagono
 	 */
-	public FractionalHex(double q, double r, double s) throws JajaUyPapiQuePutasException
+	public FractionalHex(double q, double r, double s, Color color) throws JajaUyPapiQuePutasException
 	{
+		this.color = color;
 		this.q = q;
 		this.r = r;
 		this.s = s;
@@ -47,7 +51,7 @@ public class FractionalHex
 			{
 				si = -qi - ri;
 			}
-		return new Hex(qi, ri, si);
+		return new Hex(qi, ri, si, null);
 	}
 
 }
